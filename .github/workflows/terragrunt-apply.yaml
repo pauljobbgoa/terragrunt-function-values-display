@@ -1,0 +1,47 @@
+name: 'Terragrunt Apply'
+
+on:
+  # push:
+  #   branches:
+  #   - main
+
+# Allows you to run this workflow manually from the Actions tab
+  # workflow_dispatch:
+  workflow_dispatch
+  
+jobs:
+  deploy:
+    name: 'Terragrunt Apply'
+    runs-on: ubuntu-latest
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 1.2.9
+        # terraform_version: latest
+        terraform_wrapper: false
+
+    - name: Terraform Format
+      run: terraform fmt -check -recursive
+
+    # may want to check this out further
+    - name: Setup Terragrunt
+      uses: autero1/action-terragrunt@v1.0.0
+      with:
+        #terragrunt_version: 0.29.3
+        terragrunt_version: 0.36.1
+    
+    - name: Application - Terragrunt Apply
+      run: 
+        make apply-application
