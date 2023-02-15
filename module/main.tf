@@ -24,56 +24,56 @@ variable "additional_user_defined_string_2" {
 }
 
 variable "get_parent_terragrunt_dir" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the absolute directory where the Terragrunt parent configuration file (by default terragrunt.hcl) lives"
 }
 
 variable "get_original_terragrunt_dir" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the directory where the original Terragrunt configuration file (by default terragrunt.hcl) lives"
 }
 
 variable "get_terragrunt_dir" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the directory where the Terragrunt configuration file (by default terragrunt.hcl) lives"
 }
 
 variable "path_relative_to_include" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the relative path between the current terragrunt.hcl file and the path specified in its include block"
 }
 
 variable "path_relative_from_include" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the relative path between the path specified in its include block and the current terragrunt.hcl file"
 }
 
 variable "get_repo_root" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the absolute path to the root of the Git repository"
 }
 
 variable "get_path_from_repo_root" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the path from the root of the Git repository to the current directory"
 }
 
 variable "get_path_to_repo_root" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the relative path to the root of the Git repository"
 }
 
 variable "get_platform" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "returns the current Operating System"
 }
 
